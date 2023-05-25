@@ -1,6 +1,16 @@
-<h2>Add a new list</h2>
+<div class="container mt-3">
 
-<%= simple_form_for(@list) do |f| %>
-  <%= f.input :name %>
-  <%= f.submit %>
-<% end %>
+  <h2>Add a new list</h2>
+
+  <%= simple_form_for(@list) do |f| %>
+    <%= f.input :name %>
+    <%= f.submit %>
+  <% end %>
+
+  <div>
+    <%= link_to lists_path do %>
+      <button class="btn btn-outline-dark mt-4">Back to lists</button>
+    <% end %>
+  </div>
+
+</div>

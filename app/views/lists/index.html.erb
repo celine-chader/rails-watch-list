@@ -1,8 +1,22 @@
-<h3>My Lists</h3>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1535016120720-40c646be5580?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80);">
+  <div class="container">
+    <h1>Save all <strong>your movies</strong></h1>
+  </div>
+</div>
 
+<div class="container">
+  <div class="mt-4 d-flex p-2 justify-content-between">
+    <h3>My lists</h3>
+    <%= link_to new_list_path do %>
+      <button class="btn btn-sm btn-outline-dark"><i class="fa-solid fa-plus"></i> Create a movie list</button>
+    <% end %>
+  </div>
 
-<ul>
-  <% @lists.each do |list| %>
-    <li><%= link_to list.name, list_path(list) %></li>
-  <% end %>
-</ul>
+  <div class="d-flex justify-content-between">
+    <% @lists.each do |list| %>
+      <div class="card-category mx-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1581785735604-419514e6099e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80)">
+        <h5><%= link_to list.name, list_path(list), class:"text-decoration-none text-white"%></h5>
+      </div>
+      <% end %>
+  </div>
+</div>
