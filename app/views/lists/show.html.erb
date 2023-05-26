@@ -18,9 +18,9 @@
           </div>
           <hr>
           <div class="d-flex justify-content-between">
-          <p class="card-text"><%= bookmark.comment %></p>
-          <%= link_to bookmark_path(bookmark), class:"text-decoration-none", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-            <button class="btn btn-sm btn-outline-danger"></i> Delete </button>
+          <p class="card-text"><i class="fa-solid fa-quote-left"></i> <%= bookmark.comment %></p>
+          <%= link_to bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+            <button class="btn btn-sm btn-danger"></i> Delete </button>
           <% end %>
           </div>
         </div>
