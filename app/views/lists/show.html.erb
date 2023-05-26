@@ -8,21 +8,19 @@
   <div class="d-flex justify-content-center">
     <% @bookmarks.each do |bookmark| %>
       <div class="card mx-2" style="width: 25rem;">
-        <img class="card-img-top" src="<%= bookmark.movie.poster_url %>" alt="Card image cap">
+        <img class="card-img-top picture" src="<%= bookmark.movie.poster_url %>" alt="Card image cap">
         <div class="card-body">
           <div class="d-flex">
           <p class="card-text font-weight-bold"><%= bookmark.movie.title %> —  </p>
           <p class="card-text"><%= bookmark.movie.rating %>  <i class="fa-solid fa-star"></i></p>
           </div>
           <div>
-          <p class="card-text" style="height: 72px"><%= bookmark.movie.overview %></p>
+          <p class="card-text movie-card" style="height: 72px"><%= bookmark.movie.overview %></p>
           </div>
           <hr>
           <div class="d-flex justify-content-between">
           <p><i class="fa-solid fa-quote-left"></i> <%= bookmark.comment %></p>
-          <%= link_to bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "text-decoration-none" do %>
-            <button class="btn btn-sm btn-danger"></i> Delete </button>
-          <% end %>
+          <div><%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %></div>
           </div>
         </div>
       </div>
@@ -33,7 +31,7 @@
     <h5 class="card-header">Add a movie to the list</h5>
     <div class="card-body">
       <%= simple_form_for [@list, @bookmark] do |f| %>
-        <%= f.association :movie, as: :radio_buttons %>
+        <%= f.association :movie %>
         <%= f.input :comment %>
         <%= f.submit class:"btn btn-sm btn-dark" %>
       <% end %>
