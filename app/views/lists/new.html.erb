@@ -1,14 +1,13 @@
 <div class="container mt-3">
   <div class="form">
     <h2>Add a new list</h2>
-    <form>
       <div class="form-group">
         <%= simple_form_for(@list) do |f| %>
           <%= f.input :name %>
+          <%= f.input :photo, as: :file %>
           <%= f.submit class:"btn btn-dark" %>
         <% end %>
       </div>
-    </form>
   </div>
 
     <div>
